@@ -1,0 +1,6 @@
+fasta: 
+    class: File
+    location: pEC385.fasta
+submol:
+    class: File
+    location: pEC385_meta.yaml
