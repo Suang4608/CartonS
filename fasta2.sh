@@ -2,8 +2,16 @@
 #
 #convert fasta to 2 line format
 
-I=in.fa
-O=out.fa
+while getopts :i:o: option
+do
+	case "${option}"
+		in
+		i) I=${OPTARG};;
+		o) O=${OPTARG};;
+		?) echo "No -${OPTARG} argumant foumd.";;
+	esac
+done
+
 
 awk -v O=$O '
 	{
@@ -17,6 +25,7 @@ awk -v O=$O '
 		}
 	else
 		{
+		$0 = toupper($0);	
 		printf $0 >> O
 		}
 	}
